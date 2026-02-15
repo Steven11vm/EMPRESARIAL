@@ -1,0 +1,106 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+  position: relative;
+}
+
+.mobileHeader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #1e293b;
+  color: #f1f5f9;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 1rem;
+  z-index: 1001;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.menuToggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #e2e8f0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menuToggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menuToggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.mobileBrand {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 2rem;
+  overflow-x: auto;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.overlay[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .mobileHeader {
+    display: flex;
+  }
+
+  .main {
+    padding: 1rem;
+    padding-top: 72px; /* espacio para la barra fija */
+  }
+
+  .overlay {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .overlay {
+    display: none !important;
+  }
+}
